@@ -1,6 +1,6 @@
 #University Tracker
 
-Introducción, antecedentes y objetivos
+#Introducción, antecedentes y objetivos
 
 University Tracker será una aplicación web que permitirá realizar seguimiento a los avances realizados en la carrera de forma ágil y rápida.
 
@@ -8,7 +8,7 @@ Dado que actualmente la facultad brinda, por medio de su propio aplicativo, la p
 
 En este aspecto la aplicación ayudará al estudiante brindando la posibilidad de observar rapidamente sus materias aprobadas, controlar correlatividades para prevenir futuros cuellos de botella, o incluso sentirse alentado al ver los avances realizados en la carrera.
 
- Alcance
+#Alcance
 Se proponen alcanzar las siguientes funcionalidades:
 Para dar una navegación personalizada se deberá poder loguear un usuario a traves de Facebook, esto es vital para ahorrar al usuario de la necesidad de crear nuevas claves para identificarse, ademas de sentar las bases para futuras mejoras en el aspecto “social” de la aplicación. De cualquier forma para no limitar el acceso a la aplicación se permitirá crear un usuario independiente brindando información mínima.
 Una vez especificada la carrera la aplicación mostrará en forma de arbol las correlatividades indicando cuales de las materias están en estado “Aprobadas”, “Disponibles” o “Pendientes”. Se identificarán además materias opcionales y obligatorias.
