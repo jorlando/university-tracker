@@ -31,3 +31,17 @@
 
 # "temporary" build files
 /target
+
+
+.classpath
+.project
+.settings/
+target/
+target-eclipse/
+web-app/WEB-INF/classes
+data2/config/logs/stacktrace.log
+*.war
+plugins/
+grails-app/views/error.gsp
+stacktrace.log
+.DS_Store
