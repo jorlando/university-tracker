@@ -13,5 +13,9 @@ class Users {
 	}
 
     static constraints = {
+    	padron blank: false
+    	fullName blank: false
+    	email blank: false
+    	password blank: false
     }
 }
