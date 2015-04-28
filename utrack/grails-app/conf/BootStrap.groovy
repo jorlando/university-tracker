@@ -16,7 +16,11 @@ class BootStrap {
 			mockObjects << userDos
 			Users userTres = new Users(padron:333, fullName:"alumno tres", email:"alumno3@university.com", password:"test")
 			mockObjects << userTres
-			//Materias materia1 = new Materias(codigo: "61.08", descripcion: "Algebra II")
+			Materias materia1 = new Materias(codigo: "61.08", descripcion: "Algebra II")
+			Materias materia2 = new Materias(codigo: "61.03", descripcion: "Analisis II")
+			materia1.addToCorrelativas(materia2)
+			materia1.save(flush:true,failOnError:true)
+			materia2.save(flush:true,failOnError:true)
 			//mockObjects << materia1
 			//mockObjects << new Materias(codigo: "61.03", descripcion: "Analisis Matematico II")
 			//mockObjects new Materias(codigo: "61.09", descripcion: "Prob. y Estadistica II B")
