@@ -9,12 +9,32 @@ import spock.lang.Specification
 @TestFor(Materias)
 class MateriasSpec extends Specification {
 
-    def setup() {
+
+    void "Pruebo guardar una Materia Erronea"() {
+    	
+    	given: "Creo una Materia Erronea"
+    		def materiasErronea = new Materias()  
+
+    	when: "Guardo la Materia"
+    		materiaCorrecta.save(flush: true, failOnError: true)
+    	
+    	then: "Todo debe salir mal"
+    		thrown(grails.validation.ValidationException)
+    		//!Materias.findByCodigo("61.08")
     }
 
-    def cleanup() {
-    }
+    def "Guardo una Materia Correcta"(){
+    	
+    	given: "Creo una Materia Buena"
+    		def materiaCorrecta = new Materias(codigo: "61.08", descripcion: "Algebra II", creditos: "8") 
+    	
+    	when: "Guardo la Materia"
+    		materiaCorrecta.save(flush: true, failOnError: true)
 
-    void "test something"() {
+    	then: "Todo debe salir bien"
+    		notThrown(grails.validation.ValidationException)
+
+    	cleanup:
+    		materiaCorrecta.delete(flush:true)
     }
 }

@@ -12,8 +12,11 @@ class Materias {
 	int	creditos
 
 	static hasMany = [correlativas:Materias]
-	//static belongsTo = [materia: Materias]
 
     static constraints = {
+    	
+    	codigo blank:false, nullable: false, unique: true
+    	descripcion blank:false, nullable:false
+    	creditos nullable:false, min: 1
     }
 }
