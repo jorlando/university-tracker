@@ -10,11 +10,11 @@ class UrlMappings {
         "/"(view:"/index")
         "500"(view:'/error')
 		
-		"/home"(controller: "users"){
+		"/home"(controller: "alumno"){
 			action = [GET: "index"]
 		}
 		
-		"/registration"(controller: "users"){
+		"/registration"(controller: "alumno"){
 			action = [GET: "registration"]
 		}
 		

@@ -1,13 +1,13 @@
 package com.track.university
 
-class UsersController {
-	UsersService usersService
+class AlumnoController {
+	AlumnoService alumnoService
 	
     def login() {
 		def padronInt = new Integer(params?.padron)
 		//println this.class.toString() + ": " + padronInt
 		println this.class.toString() + ": " + params
-		def userToLogin = usersService.login(padronInt, params?.password)																																								
+		def userToLogin = alumnoService.login(padronInt, params?.clave)																																								
 		def view = "myAccount"																																														
 		if(!userToLogin){ view = "login" }
 		render(view:view,model:[user:userToLogin])
@@ -15,7 +15,7 @@ class UsersController {
 																																					
 	def create() {
 		println this.class.toString() + ": " + params
-		def userToLogin = usersService.createUser(params)
+		def userToLogin = alumnoService.create(params)
 		def view = "myAccount"
 		render(view:"myAccount",model:[user:userToLogin])
 	}

@@ -1,21 +1,21 @@
 package com.track.university
 
-class Users {
+class Alumno {
 	
 	Integer padron
-	String fullName
+	String nombreCompleto
 	String email
-	Date registrationDate = new Date()
-	String password
+	Date fechaRegistracion = new Date()
+	String clave
 	
 	boolean validPassword(pwd){
-		(pwd==this.password)
+		(pwd==this.clave)
 	}
 
     static constraints = {
     	padron blank: false
-    	fullName blank: false
+    	nombreCompleto blank: false
     	email blank: false
-    	password blank: false
+    	clave blank: false
     }
 }

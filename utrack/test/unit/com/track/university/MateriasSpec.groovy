@@ -16,7 +16,7 @@ class MateriasSpec extends Specification {
     		def materiasErronea = new Materias()  
 
     	when: "Guardo la Materia"
-    		materiaCorrecta.save(flush: true, failOnError: true)
+    		materiasErronea.save(flush: true, failOnError: true)
     	
     	then: "Todo debe salir mal"
     		thrown(grails.validation.ValidationException)
