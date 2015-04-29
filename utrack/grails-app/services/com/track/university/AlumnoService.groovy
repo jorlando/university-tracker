@@ -17,16 +17,20 @@ class AlumnoService {
 		newUser.nombreCompleto = paramsToCreate.nombreCompleto
 		newUser.email = paramsToCreate.email
 		newUser.clave = paramsToCreate.clave
-		newUser.save(failOnError:true)
+		newUser.carrera = Carrera.findByCodigo(paramsToCreate?.carrera)
+		newUser.save(flush:true, failOnError:true)
 		newUser
 	}
 	
 	Alumno modify(paramsToCreate){
-		Alumno newUser = new Alumno()
-		if(paramsToCreate?.nombreCompleto){ newUser.nombreCompleto = paramsToCreate.nombreCompleto }
-		if(paramsToCreate?.email){ newUser.email = paramsToCreate.email }
-		if(paramsToCreate?.clave){ newUser.clave = paramsToCreate.clave }
-		newUser.save(failOnError:true)
-		newUser
+		Alumno userModify = new Alumno()
+		if(paramsToCreate?.nombreCompleto){ userModify.nombreCompleto = paramsToCreate.nombreCompleto }
+		if(paramsToCreate?.email){ userModify.email = paramsToCreate.email }
+		if(paramsToCreate?.clave){ userModify.clave = paramsToCreate.clave }
+		if(paramsToCreate?.carrera){ userModify.carrera = Carrera.findByCodigo(paramsToCreate?.carrera) }
+		userModify.save(flush:true, failOnError:true)
+		userModify
 	}
+	
+	
 }

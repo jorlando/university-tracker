@@ -7,6 +7,7 @@ class Alumno {
 	String email
 	Date fechaRegistracion = new Date()
 	String clave
+	Carrera carrera
 	
 	boolean validPassword(pwd){
 		(pwd==this.clave)
@@ -17,5 +18,6 @@ class Alumno {
     	nombreCompleto blank: false
     	email blank: false
     	clave blank: false
+		carrera nulleable: true
     }
 }
