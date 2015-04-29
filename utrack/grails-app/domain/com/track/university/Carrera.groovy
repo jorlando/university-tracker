@@ -4,7 +4,8 @@ class Carrera {
 	
 	String nombre
 	int codigo
-	static hasMany = [materias:Materias]
+	
+	static hasMany = [materias:Materia]
 
     static constraints = {
 		codigo blank:false, nullable: false, unique: true

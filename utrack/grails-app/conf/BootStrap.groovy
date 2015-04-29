@@ -7,17 +7,17 @@ class BootStrap {
 		if(Environment.current.equals(Environment.DEVELOPMENT)){
 			def mockObjects = []
 			
-			//Algunas materias con correlativas
-			Materias materia1 = new Materias(codigo: "61.08", descripcion: "Algebra II", creditos: "8")
-			Materias materia2 = new Materias(codigo: "61.03", descripcion: "Analisis II", creditos: "8")
-			Materias materia3 = new Materias(codigo: "61.09", descripcion: "Prob. y Estadistica II B", creditos: "6")
+			//Algunas Materia con correlativas
+			Materia materia1 = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: "8")
+			Materia materia2 = new Materia(codigo: "61.03", descripcion: "Analisis II", creditos: "8")
+			Materia materia3 = new Materia(codigo: "61.09", descripcion: "Prob. y Estadistica II B", creditos: "6")
 			materia3.addToCorrelativas(materia1)
 			materia3.addToCorrelativas(materia2)
 			mockObjects << materia1
 			mockObjects << materia2
 			mockObjects << materia3
 			
-			// CARRERAS con materias
+			// CARRERAS con Materia
 			Carrera licSistemas = new Carrera(codigo:9, nombre:"Lic. Analisis de Sistemas")
 			licSistemas.addToMaterias(materia1)
 			licSistemas.addToMaterias(materia2)

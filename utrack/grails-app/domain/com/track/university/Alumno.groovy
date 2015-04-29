@@ -13,6 +13,8 @@ class Alumno {
 		(pwd==this.clave)
 	}
 
+	static hasMany = [materias: Materia]
+
     static constraints = {
     	padron blank: false
     	nombreCompleto blank: false
