@@ -32,5 +32,4 @@ class AlumnoService {
 		userModify
 	}
 	
-	
 }

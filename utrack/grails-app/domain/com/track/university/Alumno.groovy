@@ -9,11 +9,7 @@ class Alumno {
 	String clave
 	Carrera carrera
 	
-	boolean validPassword(pwd){
-		(pwd==this.clave)
-	}
-
-	static hasMany = [materias: Materia]
+	static hasMany = [cursos: Materia]
 
     static constraints = {
     	padron blank: false
@@ -21,5 +17,13 @@ class Alumno {
     	email blank: false
     	clave blank: false
 		carrera nulleable: true
+    }
+
+	boolean validPassword(pwd){
+		(pwd==this.clave)
+	}
+    
+    Alumno buscarAlumno(Integer unPadron){ 
+    	Alumno.findAllByPadron(unPadron) 
     }
 }

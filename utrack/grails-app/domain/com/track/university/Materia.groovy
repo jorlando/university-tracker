@@ -11,12 +11,18 @@ class Materia {
 	String descripcion
 	int	creditos
 
-	static hasMany = [correlativas: Materia]
+	static hasMany = [ correlativas: Materia, estudiantes: Alumno ]
+
+    static belongsTo = Alumno
 
     static constraints = {
     	
     	codigo blank:false, nullable: false, unique: true
     	descripcion blank:false, nullable:false
     	creditos nullable:false, min: 1
+    }
+
+    def buscarMateriasCursadas(alumno){
+        Materia.findAllByEstudiantes(alumno)
     }
 }
