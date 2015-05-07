@@ -11,8 +11,8 @@ class BootStrap {
 			Materia materia1 = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: "8")
 			Materia materia2 = new Materia(codigo: "61.03", descripcion: "Analisis II", creditos: "8")
 			Materia materia3 = new Materia(codigo: "61.09", descripcion: "Prob. y Estadistica II B", creditos: "6")
-			materia3.addToCorrelativas(materia1)
-			materia3.addToCorrelativas(materia2)
+			//materia3.addToCorrelativas(materia1)
+			//materia3.addToCorrelativas(materia2)
 			mockObjects << materia1
 			mockObjects << materia2
 			mockObjects << materia3

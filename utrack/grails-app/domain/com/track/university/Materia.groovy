@@ -7,13 +7,14 @@ package com.track.university
 
 class Materia {
 
+    Carrera carrera
 	String codigo
 	String descripcion
 	int	creditos
 
-	static hasMany = [ correlativas: Materia, estudiantes: Alumno ]
+	static hasMany = [ correlativas: Materia, cursadas: Cursada ]
 
-    static belongsTo = Alumno
+    //static belongsTo = Alumno
 
     static constraints = {
     	
