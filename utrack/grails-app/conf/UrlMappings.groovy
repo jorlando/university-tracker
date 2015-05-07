@@ -18,5 +18,7 @@ class UrlMappings {
 			action = [GET: "registration"]
 		}
 		
+		"/console/$action/" { controller = "console" }
+		
 	}
 }
