@@ -24,6 +24,6 @@ class Alumno {
 	}
     
     static Alumno buscarAlumno(Integer unPadron){ 
-    	Alumno.findAllByPadron(unPadron) 
+    	Alumno.findByPadron(unPadron) 
     }
 }

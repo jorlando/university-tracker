@@ -7,7 +7,6 @@ package com.track.university
 
 class Materia {
 
-    Carrera carrera
 	String codigo
 	String descripcion
 	int	creditos
@@ -24,6 +23,6 @@ class Materia {
     }
 
     def buscarMateriasCursadas(alumno){
-        Materia.findAllByEstudiantes(alumno)
+        //Materia.findAllByEstudiantes(alumno)
     }
 }

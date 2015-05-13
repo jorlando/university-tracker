@@ -6,7 +6,7 @@ import java.util.Date;
 class AlumnoService {
 
     def login(Integer padron, String password) {
-		Alumno userToLogin = Alumno.findByPadron(padron)
+		Alumno userToLogin = this.obtenerAlumno(padron)
 		if(userToLogin?.validPassword(password)){return userToLogin}
 		false
     }
@@ -32,4 +32,12 @@ class AlumnoService {
 		userModify
 	}
 	
+	Carrera obtenerCarrera(padron){
+		Alumno alumnoBuscado = this.obtenerAlumno(padron)
+		return alumnoBuscado.carrera	
+	}
+	
+	Alumno obtenerAlumno(padron){
+		Alumno.buscarAlumno(new Integer(padron))
+	}
 }

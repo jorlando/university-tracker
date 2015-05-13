@@ -27,5 +27,10 @@ class AlumnoController {
 	def index() {
 		render(view:"login")
 	}
+	
+	def estadoMaterias(){
+		Carrera carreraAlumno = alumnoService.obtenerCarrera(params?.padron)
+		render(view:"estadoMaterias",model:[carrera:carreraAlumno])
+	}
 }
 																																																																																																																																																																																																																																																																																																																												
