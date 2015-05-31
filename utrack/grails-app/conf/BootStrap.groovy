@@ -39,7 +39,9 @@ class BootStrap {
 			mockObjects << userUno
 			Alumno userDos = new Alumno(padron:222, nombreCompleto:"alumno dos", email:"alumno2@university.com", clave:"test",carrera:ingSistemas)
 			mockObjects << userDos
-			
+
+			Cursada cursada = new Cursada(	alumno: userUno, materia: algebra)
+			mockObjects << cursada
 			//Guardo todo, 
 			//flush sirve para persistir inmediatamente, no aguarda a la transaccion
 			//failOnError levanta una excepcion si falla el salvado.

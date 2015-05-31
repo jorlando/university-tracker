@@ -26,4 +26,17 @@ class Alumno {
     static Alumno buscarAlumno(Integer unPadron){ 
     	Alumno.findByPadron(unPadron) 
     }
+
+    def obtenerCursadasAprobadas(){
+    	Cursada.findByAlumnoAndEstado(this, Cursada.Estado.APROBADA);
+     //   Cursada.findByAlumno(this);
+    }
+
+    def obtenerCursadasEnCurso(){
+    	Cursada.findByAlumnoAndEstado(this, Cursada.Estado.CURSANDO);
+    }
+
+    def obtenerCursadasDesaprobadas(){
+    	Cursada.findByAlumnoAndEstado(this, Cursada.Estado.DESAPROBADA);
+    }
 }

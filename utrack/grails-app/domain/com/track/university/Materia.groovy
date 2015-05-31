@@ -22,7 +22,5 @@ class Materia {
     	creditos nullable:false, min: 1
     }
 
-    def buscarMateriasCursadas(alumno){
-        //Materia.findAllByEstudiantes(alumno)
-    }
+    
 }

@@ -13,7 +13,7 @@
 			<td>${it.codigo}</td>
 			<td>${it.descripcion}</td>
 			<td>${it.creditos}</td>
-			<td>Pendiente</td>
+			<td>*Pendiente*</td>
 		</tr>
 	</g:each>
 	</tbody>

@@ -11,7 +11,8 @@ class Cursada {
 	Estado estado = Estado.CURSANDO
 	
     static constraints = {
-    	alumno unique:["materia", "periodo"]
+    	periodo nullable:true
+    	//alumno unique:["materia", "periodo"]
 
     }
 }
