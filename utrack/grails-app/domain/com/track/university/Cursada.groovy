@@ -15,4 +15,8 @@ class Cursada {
     	//alumno unique:["materia", "periodo"]
 
     }
+	
+	def obtenerMateria(){
+		return materia
+	}
 }

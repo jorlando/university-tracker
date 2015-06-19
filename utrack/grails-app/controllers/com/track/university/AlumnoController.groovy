@@ -37,6 +37,8 @@ class AlumnoController {
 		if (params.padron){
 			
 			Alumno alumno = alumnoService.obtenerAlumno(params?.padron)
+			
+			
 			def materiasAprobadas = []
 			alumno.obtenerCursadasAprobadas().each(){materiasAprobadas.add(it.materia)}
 
@@ -45,10 +47,19 @@ class AlumnoController {
 
 			def materiasDesaprobadas = []
 			alumno.obtenerCursadasDesaprobadas().each(){materiasDesaprobadas.add(it.materia)}
+			
+			def materiasPendientesObligatorias=[]
+			def materiasYaCursadas=alumno.obtenerCursadas()
+			
+			Carrera carreraAlumno = alumno.obtenerCarrera()
+			def materiasObligatoriasPendientes = carreraAlumno.obtenerMateriasObligatorias(materiasYaCursadas)
+			def materiasOptativasPendientes = carreraAlumno.obtenerMateriasOptativas(materiasYaCursadas)
 
 			render	(view:"estadoCursadas",model:[	materiasAprobadas: materiasAprobadas,
 													materiasDesaprobadas: materiasDesaprobadas,
-													materiasEnCurso: materiasEnCurso]
+													materiasEnCurso: materiasEnCurso,
+													materiasObligatoriasPendientes: materiasObligatoriasPendientes,
+													materiasOptativasPendientes:materiasOptativasPendientes]
 					)
 
 		}

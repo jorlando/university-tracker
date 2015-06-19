@@ -13,5 +13,12 @@
 		<br>
 		<h3>Materias Desaprobadas</h3>
 		<g:render template="/materia/tablaMaterias" model="['materias':materiasDesaprobadas]" />
+		<br>
+		<h3>Materias Obligatorias Pendientes</h3>
+		<g:render template="/materia/tablaMaterias" model="['materias':materiasObligatoriasPendientes]" />
+		<br>
+		<h3>Materias Optativas Pendientes</h3>
+		<g:render template="/materia/tablaMaterias" model="['materias':materiasOptativasPendientes]" />
+		<br>
 	</body>
 </html>

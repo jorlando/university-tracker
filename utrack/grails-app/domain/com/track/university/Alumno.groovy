@@ -39,4 +39,16 @@ class Alumno {
     def obtenerCursadasDesaprobadas(){
     	Cursada.findByAlumnoAndEstado(this, Cursada.Estado.DESAPROBADA);
     }
+	
+	def obtenerCursadas(){
+		def todasLasCursadas=[]
+		todasLasCursadas.add(this.obtenerCursadasAprobadas())
+		todasLasCursadas.add(this.obtenerCursadasDesaprobadas())
+		todasLasCursadas.add(this.obtenerCursadasEnCurso())
+		todasLasCursadas.flatten().findAll()
+	}
+	
+	def obtenerCarrera(){
+		this.carrera
+	}
 }
