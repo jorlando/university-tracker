@@ -21,6 +21,10 @@ class Materia {
     	descripcion blank:false, nullable:false
     	creditos nullable:false, min: 1
     }
+	
+	def toMap(){
+		[codigo:this.codigo,descripcion:this.descripcion]
+	}
 
     
 }

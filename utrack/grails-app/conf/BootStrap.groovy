@@ -42,6 +42,13 @@ class BootStrap {
 
 			Cursada cursada = new Cursada(	alumno: userUno, materia: algebra)
 			mockObjects << cursada
+			
+			// BLOG Materias
+			mockObjects << new Blog(materia:algebra)
+			mockObjects << new Blog(materia:analisis)
+			mockObjects << new Blog(materia:probabilidadEstadistica)
+			mockObjects << new Blog(materia:inteligenciaArtifical)
+			
 			//Guardo todo, 
 			//flush sirve para persistir inmediatamente, no aguarda a la transaccion
 			//failOnError levanta una excepcion si falla el salvado.
