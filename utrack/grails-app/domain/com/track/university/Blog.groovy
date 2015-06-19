@@ -15,11 +15,13 @@ class Blog {
 	
 	def toMap(){
 		def publicacionesBlog = publicaciones.collect{it.toMap()}
-		[materia:materia.toMap(),
+		[
+			id:this.id,
+			materia:materia.toMap(),
 			publicaciones:publicacionesBlog]
 	}
 	
-	def obtenerTodosLosBlogs(){
+	static def obtenerTodosLosBlogs(){
 		Blog.findAll()
 	}
 }

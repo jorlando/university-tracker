@@ -13,6 +13,7 @@ class BlogService {
 		Blog.buscarBlog(new Integer(blogId))
 	}
 	
+	
 	def obtenerPublicacion(publicacionId){
 		Publicacion.buscarPublicacion(new Integer(publicacionId))
 	}

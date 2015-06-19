@@ -16,7 +16,9 @@ class Publicacion {
 	
 	def toMap(){
 		def misComentarios = this.comentarios.collect{it.toMap()}
-		[titulo: this.titulo,
+		[
+			id:this.id,
+			titulo: this.titulo,
 		cuerpo: this.cuerpo,
 		creador: this.creador.nombreCompleto,
 		comentarios:misComentarios]
