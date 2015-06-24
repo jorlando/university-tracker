@@ -43,11 +43,29 @@ class BootStrap {
 			Cursada cursada = new Cursada(	alumno: userUno, materia: algebra)
 			mockObjects << cursada
 			
-			// BLOG Materias
-			mockObjects << new Blog(materia:algebra)
+			// BLOG Materias 
+			Blog blogAlgebra = new Blog(materia:algebra)
+			mockObjects << blogAlgebra
 			mockObjects << new Blog(materia:analisis)
 			mockObjects << new Blog(materia:probabilidadEstadistica)
 			mockObjects << new Blog(materia:inteligenciaArtifical)
+			
+			Publicacion nuevaPublicacion1 = new Publicacion(titulo:"titulo de una publicacion1",
+															cuerpo:"cuerpo de una publicacion1",
+															creador:userUno)
+			Publicacion nuevaPublicacion2 = new Publicacion(titulo:"titulo de una publicacion2",
+															cuerpo:"cuerpo de una publicacion2",
+															creador:userDos)
+			blogAlgebra.addToPublicaciones(nuevaPublicacion1)
+			blogAlgebra.addToPublicaciones(nuevaPublicacion2)
+			
+			Comentario nuevoComentario1 = new Comentario(texto:"texto 1 publicacion",creador:userDos)
+			nuevaPublicacion1.addToComentarios(nuevoComentario1)
+			Comentario nuevoComentario2 = new Comentario(texto:"texto 2 publicacion",creador:userDos)
+			nuevaPublicacion1.addToComentarios(nuevoComentario2)
+			
+			mockObjects << nuevaPublicacion1
+			mockObjects << nuevaPublicacion2
 			
 			//Guardo todo, 
 			//flush sirve para persistir inmediatamente, no aguarda a la transaccion

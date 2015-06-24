@@ -18,6 +18,13 @@ class UrlMappings {
 			action = [GET: "registration"]
 		}
 		
+		"/blogs/$blogId?"(controller: "blog"){
+			action = [GET: "obtenerBlog"]
+		}
+		"/blogs/$blogId/publicacion/$publicacionId?"(controller: "blog"){
+			action = [GET: "obtenerPublicacion"]
+		}
+		
 		"/console/$action/" { controller = "console" }
 		
 	}

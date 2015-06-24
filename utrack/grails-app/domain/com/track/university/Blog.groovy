@@ -18,7 +18,7 @@ class Blog {
 		[
 			id:this.id,
 			materia:materia.toMap(),
-			publicaciones:publicacionesBlog]
+			publicaciones:publicacionesBlog.sort{it.fecha}]
 	}
 	
 	static def obtenerTodosLosBlogs(){

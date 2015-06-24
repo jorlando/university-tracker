@@ -18,6 +18,7 @@ class BlogService {
 		Publicacion.buscarPublicacion(new Integer(publicacionId))
 	}
 	
+	
 	def crearComentario(publicacionId,String texto, Alumno alumnoCreador){
 		Publicacion publicacionAComentar = this.obtenerPublicacion(publicacionId)
 		Comentario nuevoComentario = new Comentario(texto:texto,creador:alumnoCreador)
