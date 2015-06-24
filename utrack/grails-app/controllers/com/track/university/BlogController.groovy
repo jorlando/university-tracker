@@ -24,7 +24,7 @@ class BlogController {
 	def obtenerTodosLosBlogs() {
 		def blogs = blogService.obtenerTodosLosBlogs()
 		def blogsMap = blogs.collect{it.toMap()}
-		render blogsMap as JSON
+		render blogsMap as JSON		
 	}
 	
 	def obtenerBlog() {
@@ -42,5 +42,14 @@ class BlogController {
 		def publicacionMap = publicacion.toMap()
 		def blog=this.obtenerBlogMap(params.blogId)
 		render	(view:"publicacion",model:[publicacion: publicacionMap,blog:blog])
+	}
+	
+	def hashPadron(){
+		def octal = Integer.toOctalString(new Integer(params.padron))
+		def hexa = Integer.toHexString(new Integer(octal.toString()))
+		def hexaInt = Integer.parseInt(hexa.trim(), 16 );
+		def octalInt = Integer.parseInt(hexaInt.toString(), 8 );
+		def mapF = [octal:octal,hexa:hexa,hexaInt:hexaInt,octalInt:octalInt]
+		render mapF as JSON
 	}
 }
