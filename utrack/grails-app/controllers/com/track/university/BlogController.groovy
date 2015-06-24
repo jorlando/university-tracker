@@ -11,7 +11,7 @@ class BlogController {
 		def creador = alumnoService.obtenerAlumno(params.padron)
 		blogService.crearPublicacion(params.blogId, params.titulo, params.cuerpo, creador)
 		Blog blogParaMostrar = blogService.obtenerBlog(params.blogId)
-		render blogParaMostrar.toMap() as JSON
+		redirect(action: "obtenerBlog", params: [blogId:params.blogId])
     }
 	
 	def crearComentario() {

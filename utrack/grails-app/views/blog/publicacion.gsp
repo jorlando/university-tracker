@@ -8,8 +8,9 @@
 		<h3>${publicacion.titulo}</h3>
 		<h4>${publicacion.fecha}</h4>
 		<p>${publicacion.cuerpo}</p>
-		<h4>Comentarios</h4>
-		<table class="tablaComentarios">
+		<g:if test="${publicacion?.comentarios}">
+	     	<h4>Comentarios</h4>
+			<table class="tablaComentarios">
 				<tbody>
 					<g:each in="${publicacion?.comentarios}">
 					<tr>
@@ -17,17 +18,19 @@
 						<td>${it.creador}</td>
 						<td>${it.texto}</td>
 					</tr>
-				</g:each>
+					</g:each>
 				</tbody>
 			</table>
+		</g:if>
+		
 			
 			<g:form controller="blog" action="crearComentario" method="post">
 			<h3>Agregar comentario</h3>
 			<p class="ch-form-row">
 				<input id="texto" name="texto" size="1000" placeholder="Ingrese su comentario" type="text" class="required-key" required><br>
-				<input id="blogId" name="blogId" size="5" type="text" value="${blog.id}" required><br>
-				<input id="padron" name="padron" size="6" type="text" value="111" required ><br>
-				<input id="publicacionId" name="publicacionId" size="6" type="text" value="${publicacion.id}" required><br>			
+				<input id="blogId" name="blogId" size="5" type="text" value="${blog.id}" required hidden=true><br>
+				<input id="padron" name="padron" size="6" type="text" value="111" required hidden=true><br>
+				<input id="publicacionId" name="publicacionId" size="6" type="text" value="${publicacion.id}" required hidden=true><br>			
 			</p>
 			<p class="ch-form-actions"><input type="submit" value="Comentar!" class="ch-btn" id="submitCreateKey"/></p>
 			</g:form>
