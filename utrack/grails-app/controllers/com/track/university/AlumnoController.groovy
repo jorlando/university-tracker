@@ -1,15 +1,20 @@
 package com.track.university
 
+import com.utrack.university.LoginUtils
+
 class AlumnoController {
 	AlumnoService alumnoService
+	LoginUtils loginUtils = new LoginUtils()
 	
     def login() {
 		def padronInt = new Integer(params?.padron)
-		//println this.class.toString() + ": " + padronInt
-		println this.class.toString() + ": " + params
 		def userToLogin = alumnoService.login(padronInt, params?.clave)																																								
 		def view = "myAccount"																																														
-		if(!userToLogin){ view = "login" }
+		if(!userToLogin){ view = "login"
+		}else{
+			loginUtils.login(padronInt, response)
+			session.padron=padronInt
+		}
 		render(view:view,model:[user:userToLogin])
 	}																												 
 																																					

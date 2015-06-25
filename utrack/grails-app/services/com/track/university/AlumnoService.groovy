@@ -40,4 +40,5 @@ class AlumnoService {
 	Alumno obtenerAlumno(padron){
 		Alumno.buscarAlumno(new Integer(padron))
 	}
+	
 }

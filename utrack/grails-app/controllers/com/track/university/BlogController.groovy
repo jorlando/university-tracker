@@ -43,13 +43,8 @@ class BlogController {
 		def blog=this.obtenerBlogMap(params.blogId)
 		render	(view:"publicacion",model:[publicacion: publicacionMap,blog:blog])
 	}
-	
-	def hashPadron(){
-		def octal = Integer.toOctalString(new Integer(params.padron))
-		def hexa = Integer.toHexString(new Integer(octal.toString()))
-		def hexaInt = Integer.parseInt(hexa.trim(), 16 );
-		def octalInt = Integer.parseInt(hexaInt.toString(), 8 );
-		def mapF = [octal:octal,hexa:hexa,hexaInt:hexaInt,octalInt:octalInt]
-		render mapF as JSON
+
+	def test(){
+		render "test"
 	}
 }
