@@ -10,12 +10,16 @@ class AlumnoController {
 		def padronInt = new Integer(params?.padron)
 		def userToLogin = alumnoService.login(padronInt, params?.clave)																																								
 		def view = "myAccount"																																														
-		if(!userToLogin){ view = "login"
-		}else{
+		if(!userToLogin){ 
+			view = "login"
+			render(view:view,model:[user:userToLogin])
+		}
+		else{
 			loginUtils.login(padronInt, response)
 			session.padron=padronInt
+			forward(action:"estadoCursadas", params:[padron:padronInt])
 		}
-		render(view:view,model:[user:userToLogin])
+		
 	}																												 
 																																					
 	def create() {

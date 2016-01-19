@@ -15,7 +15,9 @@
 					<input id="clave" name="clave" size="50" type="text" class="required-key"><br>
 					<a href="registration">No tengo cuenta</a>	
 				</p>
-				<p class="ch-form-actions"><input type="submit" value="Ingresar" class="ch-btn" id="submitSaveOwner"/></p>
+				<p class="ch-form-actions">
+					<g:actionSubmit value="Ingresar" action="login" />
+				</p>
 		</g:form>
 	</body>
 </html>

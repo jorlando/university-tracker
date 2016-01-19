@@ -5,7 +5,7 @@ import com.utrack.university.LoginUtils
 class LoginFilters {	
 	LoginUtils loginUtils = new LoginUtils()
     def filters = {
-		allExceptIndex(controller:"alumno",action:"index",invert:true) {
+		/*allExceptIndex(controller:"alumno",action:"index",invert:true) {
             before = {
 				def apiKeyCookie = loginUtils.getApikey(request)
 				if(!(apiKeyCookie?.value)){
@@ -23,6 +23,6 @@ class LoginFilters {
             afterView = { Exception e ->
 
             }
-        }
+        }*/
     }
 }

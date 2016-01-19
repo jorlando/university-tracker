@@ -17,7 +17,7 @@ class MateriaController {
     	{
     		render("Debe especificar el padron")
     	}else{
-    		Materia.buscarMateriasCursadas(alumno)
+    		alumno.obtenerCursadas()
     	}
 
     }
