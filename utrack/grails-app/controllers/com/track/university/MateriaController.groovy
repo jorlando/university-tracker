@@ -1,16 +1,11 @@
 package com.track.university
 
+import grails.converters.JSON;
+
 class MateriaController {
-	AlumnoService alumnoService
-
-    def index() { render("holaa")}
-
     def materiasAlumno () {
 
     	Integer padron = params?.int("padron")
-    	
-    	println(padron)
-
     	def alumno = Alumno.buscarAlumno(padron)
 
     	if (!alumno)
@@ -19,6 +14,19 @@ class MateriaController {
     	}else{
     		alumno.obtenerCursadas()
     	}
-
     }
+	
+	def mostrarInfoMateria(){
+		Materia materia = Materia.buscarMateria(params.id)
+		if (!materia){
+			render("materia invalida")
+		}else{
+			def mapToView = [
+								correlativas: materia.obtenerCorrelativas(),
+								codigo: materia.getCodigo(),
+								descripcion:materia.getDescripcion()
+							]
+			render(view:"infoMateria",model:mapToView)
+		}
+	}
 }

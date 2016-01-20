@@ -2,9 +2,9 @@ package com.track.university
 
 class BlogService {
 
-    def crearPublicacion(blogId, String titulo, String cuerpo, Alumno alumnoCreador) {
+    def crearPublicacion(materia, String titulo, String cuerpo, Alumno alumnoCreador) {
 		Publicacion nuevaPublicacion = new Publicacion(titulo:titulo,cuerpo:cuerpo, creador:alumnoCreador)
-		Blog blogBuscado = this.obtenerBlog(blogId)
+		Blog blogBuscado = Materia.obtenerBlogDeMateria(materia)
 		blogBuscado.addToPublicaciones(nuevaPublicacion)
 		blogBuscado.save(flush:true, failOnError:true)
     }
@@ -24,9 +24,5 @@ class BlogService {
 		Comentario nuevoComentario = new Comentario(texto:texto,creador:alumnoCreador)
 		publicacionAComentar.addToComentarios(nuevoComentario)
 		publicacionAComentar.save(flush:true, failOnError:true)
-	}
-	
-	def obtenerTodosLosBlogs(){
-		Blog.obtenerTodosLosBlogs()
 	}
 }

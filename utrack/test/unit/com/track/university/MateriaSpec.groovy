@@ -62,7 +62,7 @@ class MateriaSpec extends Specification {
     def "Se puede guardar una Materia con Codigo, Descripcion y Creditos"(){
     	
     	given:
-    		def materiaCorrecta = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: "8") 
+    		def materiaCorrecta = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: 8) 
     	
     	when: "Guardo la Materia"
     		materiaCorrecta.save(flush: true, failOnError: true)
@@ -73,4 +73,28 @@ class MateriaSpec extends Specification {
     	cleanup:
     		materiaCorrecta.delete(flush:true)
     }
+	
+	def "test obtenerCorrelativas de una materia con correlativas"(){
+		given:
+			def materiaPrincipal = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: 8)
+			def materiaCorrelativa1 = new Materia(codigo: "1", descripcion: "correlativa1", creditos: 8)
+			def materiaCorrelativa2 = new Materia(codigo: "2", descripcion: "correlativa2", creditos: 8)
+			materiaPrincipal.addToCorrelativas(materiaCorrelativa1)
+			materiaPrincipal.addToCorrelativas(materiaCorrelativa2)
+			materiaPrincipal.save(flush: true, failOnError: true)
+		when:
+			def correlativas = materiaPrincipal.obtenerCorrelativas()
+		then:
+			correlativas == [[codigo:"1", descripcion:"correlativa1"], [codigo:"2", descripcion:"correlativa2"]]
+	}
+	
+	def "test obtenerCorrelativas de una materia sin correlativas"(){
+		given:
+			def materiaPrincipal = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: 8)
+			materiaPrincipal.save(flush: true, failOnError: true)
+		when:
+			def correlativas = materiaPrincipal.obtenerCorrelativas()
+		then:
+			correlativas == []
+	}
 }

@@ -1,10 +1,7 @@
 package com.track.university
 
 class Blog {
-	
-	Materia materia
 	static hasMany = [publicaciones: Publicacion]
-	
 
     static constraints = {
     }
@@ -17,11 +14,6 @@ class Blog {
 		def publicacionesBlog = publicaciones.collect{it.toMap()}
 		[
 			id:this.id,
-			materia:materia.toMap(),
 			publicaciones:publicacionesBlog.sort{it.fecha}]
-	}
-	
-	static def obtenerTodosLosBlogs(){
-		Blog.findAll()
 	}
 }

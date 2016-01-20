@@ -10,13 +10,11 @@ class Materia {
 	String codigo
 	String descripcion
 	int	creditos
+	Blog blog = new Blog()
 
 	static hasMany = [ correlativas: Materia, cursadas: Cursada ]
 
-    //static belongsTo = Alumno
-
     static constraints = {
-    	
     	codigo blank:false, nullable: false, unique: true
     	descripcion blank:false, nullable:false
     	creditos nullable:false, min: 1
@@ -24,6 +22,18 @@ class Materia {
 	
 	def toMap(){
 		[codigo:this.codigo,descripcion:this.descripcion]
+	}
+	
+	static Materia buscarMateria(String materia){
+		Materia.findByCodigo(materia)
+	}
+	
+	static Blog obtenerBlogDeMateria(String materia){
+		Materia.findByCodigo(materia).blog
+	}
+	
+	def obtenerCorrelativas(){
+		this.correlativas.collect{[codigo:it.codigo, descripcion:it.descripcion]}
 	}
 
     

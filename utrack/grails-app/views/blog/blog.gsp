@@ -3,7 +3,7 @@
 		<title>University Track</title>
 	</head>
 	<body>
-		<h2>Blog - ${blog?.materia?.codigo} - ${blog?.materia?.descripcion}</h2>
+		<h2>Blog - ${params.materia}</h2>
 		<g:render template="/blog/tablaPublicaciones" model="['blog':blog]" />
 		
 		<g:form controller="blog" action="crearPublicacion" method="post">

@@ -7,11 +7,27 @@ class BootStrap {
 		if(Environment.current.equals(Environment.DEVELOPMENT)){
 			def mockObjects = []
 			
+			Blog blogAlgebra = new Blog()
+			mockObjects << blogAlgebra
+			
+			Blog blogAnalisis = new Blog()
+			mockObjects << blogAnalisis
+			
+			Blog blogProba = new Blog()
+			mockObjects << blogProba
+			
+			Blog blogInteligenciaArtificial = new Blog()
+			mockObjects << blogInteligenciaArtificial
+			
 			//Algunas Materia con correlativas
-			Materia algebra = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: "8")
-			Materia analisis = new Materia(codigo: "61.03", descripcion: "Analisis II", creditos: "8")
-			Materia probabilidadEstadistica = new Materia(codigo: "61.09", descripcion: "Prob. y Estadistica II B", creditos: "6")
-			Materia inteligenciaArtifical = new Materia(codigo: "75.23", descripcion: "Inteligencia Artificial", creditos: "6")
+			Materia algebra = new Materia(codigo: "61.08", descripcion: "Algebra II", creditos: 8)
+			algebra.blog = blogAlgebra
+			Materia analisis = new Materia(codigo: "61.03", descripcion: "Analisis II", creditos: 8)
+			analisis.blog = blogAnalisis
+			Materia probabilidadEstadistica = new Materia(codigo: "61.09", descripcion: "Prob. y Estadistica II B", creditos: 6)
+			probabilidadEstadistica.blog = blogProba
+			Materia inteligenciaArtifical = new Materia(codigo: "75.23", descripcion: "Inteligencia Artificial", creditos: 6)
+			inteligenciaArtifical.blog = blogInteligenciaArtificial
 			
 			probabilidadEstadistica.addToCorrelativas(algebra)
 			probabilidadEstadistica.addToCorrelativas(analisis)
@@ -44,20 +60,15 @@ class BootStrap {
 			mockObjects << cursada
 			
 			// BLOG Materias 
-			Blog blogAlgebra = new Blog(materia:algebra)
-			mockObjects << blogAlgebra
-			mockObjects << new Blog(materia:analisis)
-			mockObjects << new Blog(materia:probabilidadEstadistica)
-			mockObjects << new Blog(materia:inteligenciaArtifical)
-			
+/*			
 			Publicacion nuevaPublicacion1 = new Publicacion(titulo:"titulo de una publicacion1",
 															cuerpo:"cuerpo de una publicacion1",
 															creador:userUno)
 			Publicacion nuevaPublicacion2 = new Publicacion(titulo:"titulo de una publicacion2",
 															cuerpo:"cuerpo de una publicacion2",
 															creador:userDos)
-			blogAlgebra.addToPublicaciones(nuevaPublicacion1)
-			blogAlgebra.addToPublicaciones(nuevaPublicacion2)
+			algebra.blog.addToPublicaciones(nuevaPublicacion1)
+			algebra.blog.addToPublicaciones(nuevaPublicacion2)
 			
 			Comentario nuevoComentario1 = new Comentario(texto:"texto 1 publicacion",creador:userDos)
 			nuevaPublicacion1.addToComentarios(nuevoComentario1)
@@ -65,7 +76,7 @@ class BootStrap {
 			nuevaPublicacion1.addToComentarios(nuevoComentario2)
 			
 			mockObjects << nuevaPublicacion1
-			mockObjects << nuevaPublicacion2
+			mockObjects << nuevaPublicacion2*/
 			
 			//Guardo todo, 
 			//flush sirve para persistir inmediatamente, no aguarda a la transaccion
